@@ -6,6 +6,15 @@ import {Product} from "./product.module"
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
+  imgParent = '';
+
+  onLoaded(img: string) {
+    console.log('log padre!', img); //* img viene del hijo
+  }
+
+
+  widthImg = 10;
+
   name:string="Danny";
   age:number=22;
   img:string='https://source.unsplash.com/random';
@@ -19,6 +28,16 @@ export class AppComponent {
   
   names: string[] = ["Nicolas", "Pedro", "Cesarinho",]
   newName = ""
+  box= {
+    width: 100,
+    height: 100,
+    background: 'red'
+  }
+  register = {
+    name:"",
+    email:"",
+    password:"",
+  }
   products: Product[] = [
     {
       name: 'EL mejor juguete',
@@ -90,5 +109,10 @@ onScroll(event: Event){
 const element = event.target as HTMLElement;
 console.log(element.scrollTop)
 }
+
+onRegister(){
+  console.log(this.register)
+}
+
 }
 
